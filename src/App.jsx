@@ -6,6 +6,8 @@ import GameDev from "src/pages/GameDev";
 import ScrollContent from "./pages/ScrollContent";
 import React from "react";
 import { useScroll } from "framer-motion";
+import ProgressBar from "./pages/ProgressBar";
+
 function generateTransformValues(page, pageCount) {
   // Calculate the start and end percentages for the current page
   const start = (page - 1) / pageCount;
@@ -25,6 +27,7 @@ function App() {
 
   return (
     <>
+      <ProgressBar scrollY={scrollYProgress} range={[0, 0.85]} />
       <ComputerEngineer page={1} scrollY={scrollYProgress} />
       <LabAssistant
         page={2}
