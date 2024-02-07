@@ -23,15 +23,6 @@ const ChakraMotionBox = chakra(motion.div, {
 });
 
 export default function ComputerEngineer(props) {
-  // const { scrollYProgress } = props.scrollY;
-  // useMotionValueEvent(props.scrollY, "change", (latest) => {
-  //   console.log("Scroll Y Progress in child changed to", latest);
-  // });
-  // These motion values will change as the page scrolls
-  // const scaleHeight = useTransform(props.scrollY, props.range, [
-  //   "0vh",
-  //   "100vh",
-  // ]);
   return (
     <ChakraMotionBox
       position="fixed"
@@ -46,7 +37,7 @@ export default function ComputerEngineer(props) {
       <>
         {/* Text Container */}
         <Flex
-          paddingX={"4.7rem"}
+          paddingX={{ base: "3em", md: "3.5em", lg: "5em", "2xl": "6.5em" }}
           position="fixed" // Use absolute to position the text over the image
           left="0" // Align to the left side of the viewport
           top="0" // Start from the top
@@ -55,13 +46,29 @@ export default function ComputerEngineer(props) {
           justifyContent="space-between" // Align text to the left
           alignItems="center" // Center text vertically
         >
-          <Stack width={300} spacing={0}>
+          <Stack
+            width={{
+              base: "12em",
+              md: "13em",
+              lg: "15em",
+              xl: "22em",
+              "2xl": "26.3em",
+            }}
+            spacing={0}
+          >
             <Text
               fontFamily={`'Montserrat', sans-serif`}
-              fontSize={"6xl"}
+              fontSize={{
+                base: "2xl",
+                sm: "3xl",
+                md: "4xl",
+                lg: "5xl",
+                xl: "7xl",
+                "2xl": "8xl",
+              }}
               letterSpacing={-2}
               fontWeight="700"
-              lineHeight="3.3rem"
+              lineHeight={{ base: "1em", "2xl": "0.9em" }}
             >
               Hello,
               <br />
@@ -70,37 +77,37 @@ export default function ComputerEngineer(props) {
             <Text
               fontFamily={`'Montserrat', sans-serif`}
               marginTop={3}
-              fontSize={"lg"}
+              fontSize={{ base: "sm", md: "sm", xl: "xl", "2xl": "2xl" }}
               fontWeight="600"
-              lineHeight="1.3rem"
+              lineHeight="1.3em"
             >
               I’m a Computer Engineer
             </Text>
             <Text
               fontFamily={`'Montserrat', sans-serif`}
-              fontSize={"lg"}
+              fontSize={{ base: "sm", md: "sm", xl: "xl", "2xl": "2xl" }}
               fontWeight="400"
-              lineHeight="1.3rem"
+              lineHeight="1.3em"
             >
               That mean I works with IoT, Robotics, Website and Applications
             </Text>
-            <Button
-              marginTop={"2rem"}
-              width={"8.5rem"}
-              px={4}
-              variant="blackTheme"
-              borderRadius={"lg"}
-            >
-              Learn more
-            </Button>
+            <Button variant="blackTheme">Learn more</Button>
           </Stack>
-          <Stack width={150} spacing={0}>
+          <Stack
+            width={{
+              base: "7.6em",
+              lg: "14em",
+              xl: "16em",
+              "2xl": "18em",
+            }}
+            spacing={0}
+          >
             <Text
               fontFamily={`'Montserrat', sans-serif`}
               marginTop={3}
-              fontSize={"lg"}
+              fontSize={{ base: "sm", md: "sm", xl: "xl", "2xl": "2xl" }}
               fontWeight="600"
-              lineHeight="1.3rem"
+              lineHeight="1.3em"
             >
               Interested in
               <br />
@@ -108,27 +115,19 @@ export default function ComputerEngineer(props) {
             </Text>
             <Text
               fontFamily={`'Montserrat', sans-serif`}
-              fontSize={"lg"}
+              fontSize={{ base: "sm", md: "sm", xl: "xl", "2xl": "2xl" }}
               fontWeight="400"
-              lineHeight="1.3rem"
+              lineHeight="1.3em"
             >
-              Your ideas and inquiries are always welcome
+              Inquiries are always welcome
             </Text>
-            <Button
-              marginTop={"0.8rem"}
-              width={"8.5rem"}
-              px={4}
-              variant="blackTheme"
-              borderRadius={"lg"}
-            >
-              Contact me
-            </Button>
+            <Button variant="blackTheme">Contact me</Button>
           </Stack>
         </Flex>
 
         {/* Image */}
         <Image
-          src="/images/code.webp"
+          src="/images/code.png"
           width="100vw"
           height="100vh" // Keep the image height to cover the full viewport height
           objectFit="cover"

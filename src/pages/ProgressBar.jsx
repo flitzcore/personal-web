@@ -18,13 +18,19 @@ export default function ProgressBar(props) {
 
   return (
     <Box
-      marginLeft={"3rem"}
+      marginLeft={{ base: "1rem", md: "1.5em", lg: "3.5em", "2xl": "4em" }}
       position="fixed"
       top="50%" // Center vertically
       transform="translateY(-50%)" // Adjust for exact vertical centering
       zIndex={100}
-      height="21rem"
-      width="12px"
+      height={{
+        base: "13em",
+        md: "15em",
+        lg: "16.5em",
+        xl: "20em",
+        "2xl": "30em",
+      }}
+      width={{ base: "6px", md: "8px", lg: "9px", xl: "12px" }}
       backgroundColor="#C7C4C4"
       borderRadius="full" // Adjust this value as needed to create a more circular appearance
     >

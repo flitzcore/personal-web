@@ -40,6 +40,7 @@ export default function LabAssistant(props) {
         height: scaleHeight,
       }} // Apply the motion value
       w="100%"
+      objectFit={"cover"}
       overflow="hidden" // Ensure that only the part of the image within the Box is visible
     >
       <Box
@@ -53,7 +54,7 @@ export default function LabAssistant(props) {
         {/* Text Container */}
         <Flex
           paddingX={"4.7rem"}
-          position="fixed" // Use absolute to position the text over the image
+          position="absolute" // Use absolute to position the text over the image
           left="0" // Align to the left side of the viewport
           top="0" // Start from the top
           h="100%" // Take full height to allow vertical centering
@@ -137,9 +138,9 @@ export default function LabAssistant(props) {
           </Stack>
         </Flex>
         <Image
-          src="/images/lab.webp"
+          src="/images/lab.png"
           height="100%" // Make the image fill the container
-          width="auto" // Auto width to maintain aspect ratio
+          width="100vw" // Auto width to maintain aspect ratio
           objectFit="cover"
           objectPosition="bottom" // Ensure the bottom part of the image is visible and aligned
         />

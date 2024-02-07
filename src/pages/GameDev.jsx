@@ -42,9 +42,9 @@ export default function GameDev(props) {
         overflow="hidden" // Ensure the image is clipped to the changing height of its parent
       >
         <Image
-          src="/images/serious.webp"
+          src="/images/serious.png"
           height="100%" // Make the image fill the container
-          width="auto" // Auto width to maintain aspect ratio
+          width="100vw" // Auto width to maintain aspect ratio
           objectFit="cover"
           objectPosition="bottom" // Ensure the bottom part of the image is visible and aligned
         />
