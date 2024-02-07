@@ -35,7 +35,7 @@ export default function ProgressBar(props) {
       borderRadius="full" // Adjust this value as needed to create a more circular appearance
     >
       <ChakraMotionBox
-        backgroundColor="#292929"
+        backgroundColor="#3F3E3E"
         borderRadius="full" // Apply full circular ends to the inner box
         width="100%" // Ensure the inner box fills the width of the outer box
         position="absolute"
