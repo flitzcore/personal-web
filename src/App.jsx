@@ -6,7 +6,7 @@ import GameDev from "src/pages/GameDev";
 import ScrollContent from "./pages/ScrollContent";
 import React from "react";
 import { useScroll } from "framer-motion";
-import ProgressBar from "./pages/ProgressBar";
+import ProgressBar from "./components/ProgressBar";
 
 function generateTransformValues(page, pageCount) {
   // Calculate the start and end percentages for the current page

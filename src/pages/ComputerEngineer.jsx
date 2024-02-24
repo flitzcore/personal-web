@@ -7,7 +7,7 @@ import {
   chakra,
   shouldForwardProp,
 } from "@chakra-ui/react";
-
+import { useDisclosure } from "@chakra-ui/react";
 import {
   motion,
   useTransform,
@@ -16,6 +16,7 @@ import {
 } from "framer-motion";
 
 import "src/fonts/montserrat.css";
+import ModalComputerEngineer from "../components/ModalComputerEngineer";
 
 const ChakraMotionBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
@@ -23,6 +24,7 @@ const ChakraMotionBox = chakra(motion.div, {
 });
 
 export default function ComputerEngineer(props) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <ChakraMotionBox
       position="fixed"
@@ -91,7 +93,11 @@ export default function ComputerEngineer(props) {
             >
               That mean I works with IoT, Robotics, Website and Applications
             </Text>
-            <Button variant="blackTheme">Learn more</Button>
+
+            <Button onClick={onOpen} variant="blackTheme">
+              Learn more
+            </Button>
+            <ModalComputerEngineer isOpen={isOpen} onClose={onClose} />
           </Stack>
           <Stack
             width={{

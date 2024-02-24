@@ -22,11 +22,7 @@ const ChakraMotionBox = chakra(motion.div, {
 });
 
 export default function LabAssistant(props) {
-  // const { scrollYProgress } = props.scrollY;
-  // useMotionValueEvent(props.scrollY, "change", (latest) => {
-  //   console.log("Scroll Y Progress in child changed to", latest);
-  // });
-  // These motion values will change as the page scrolls
+
   const scaleHeight = useTransform(props.scrollY, props.range, [
     "0vh",
     "100vh",
