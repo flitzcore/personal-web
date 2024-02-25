@@ -92,7 +92,7 @@ export default function ModalComputerEngineer(props) {
           educational experience. For more about my learning journey and the
           courses I've taken, please visit{" "}
           <a
-            href="https:///idcamp.ioh.co.id//"
+            href="https:///idcamp.ioh.co.id/"
             target="_blank"
             style={{
               color: "black",

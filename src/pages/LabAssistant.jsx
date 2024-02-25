@@ -8,13 +8,14 @@ import {
   chakra,
   shouldForwardProp,
 } from "@chakra-ui/react";
-
+import { useDisclosure } from "@chakra-ui/react";
 import {
   motion,
   useTransform,
   isValidMotionProp,
   useMotionValueEvent,
 } from "framer-motion";
+import ModalLabAssistant from "../components/ModalLabAssistant";
 
 const ChakraMotionBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
@@ -22,7 +23,7 @@ const ChakraMotionBox = chakra(motion.div, {
 });
 
 export default function LabAssistant(props) {
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const scaleHeight = useTransform(props.scrollY, props.range, [
     "0vh",
     "100vh",
@@ -95,7 +96,7 @@ export default function LabAssistant(props) {
               lineHeight="1.3em"
               color={"#FEFEFA"}
             >
-              I’m a Computer Engineer
+              I’m a Collaborator
             </Text>
             <Text
               fontFamily={`'Montserrat', sans-serif`}
@@ -104,9 +105,13 @@ export default function LabAssistant(props) {
               lineHeight="1.3em"
               color={"#FEFEFA"}
             >
-              That mean I works with IoT, Robotics, Website and Applications
+              I'm active as a lab assistant and committee member for campus
+              events.
             </Text>
-            <Button variant="whiteTheme">Learn more</Button>
+            <Button onClick={onOpen} variant="whiteTheme">
+              Learn more
+            </Button>
+            <ModalLabAssistant isOpen={isOpen} onClose={onClose} />
           </Stack>
           <Stack
             width={{
