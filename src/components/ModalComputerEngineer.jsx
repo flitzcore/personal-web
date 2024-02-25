@@ -17,6 +17,7 @@ import ProgressBarHorizontal from "./ProgressBarHorizontal";
 
 export default function ModalComputerEngineer(props) {
   const pages = [
+    // Tekkom
     {
       imageUrl: "/images/Tekkom.webp",
       text: () => (
@@ -48,6 +49,7 @@ export default function ModalComputerEngineer(props) {
         </>
       ),
     },
+    // Google Bangkit
     {
       imageUrl: "/images/Google.webp",
       text: () => (
@@ -78,7 +80,32 @@ export default function ModalComputerEngineer(props) {
         </>
       ),
     },
-    // Add more pages as needed
+    // Indosat Idcamp
+    {
+      imageUrl: "/images/indosat.webp",
+      text: () => (
+        <>
+          I also increase my skills by actively pursue online courses like those
+          offered by <strong>IDCamp</strong> to broaden my knowledge in various
+          IT fields. These courses cover a range of topics, from web development
+          to artificial intelligence, providing me with a well-rounded
+          educational experience. For more about my learning journey and the
+          courses I've taken, please visit{" "}
+          <a
+            href="https:///idcamp.ioh.co.id//"
+            target="_blank"
+            style={{
+              color: "black",
+              fontWeight: "bold",
+              textDecoration: "underline",
+            }}
+          >
+            IDCamp's website
+          </a>
+          .
+        </>
+      ),
+    },
   ];
 
   const [currentPage, setCurrentPage] = useState(0);
