@@ -137,7 +137,7 @@ export default function ModalLabAssistant(props) {
 
   return (
     <Modal
-      size={{ base: "sm", md: "md", lg: "lg", xl: "xl" }}
+      size={{ base: "sm", md: "sm", lg: "md", xl: "lg", "2xl": "xl" }}
       isCentered
       isOpen={props.isOpen}
       onClose={props.onClose}
@@ -156,7 +156,7 @@ export default function ModalLabAssistant(props) {
             alt="Page Image"
             mb={4}
             width={"100%"}
-            height={{ base: "8em", lg: "10em", xl: "18em" }}
+            height={{ base: "8em", md: "10em", lg: "13em", xl: "18em" }}
             objectFit={"cover"}
           />
           <Text textAlign={"justify"}>{pages[currentPage].text()}</Text>

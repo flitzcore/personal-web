@@ -171,7 +171,7 @@ export default function ModalProgrammer(props) {
 
   return (
     <Modal
-      size={{ base: "sm", md: "md", lg: "lg", xl: "xl" }}
+      size={{ base: "sm", md: "sm", lg: "md", xl: "lg", "2xl": "xl" }}
       isCentered
       isOpen={props.isOpen}
       onClose={props.onClose}
@@ -179,9 +179,7 @@ export default function ModalProgrammer(props) {
     >
       <ModalOverlay bg="blackAlpha.300" backdropFilter="blur(10px) " />
       <ModalContent>
-        <ModalHeader>
-          I have participated in numerous projects &#128204;
-        </ModalHeader>
+        <ModalHeader>I have participated in projects &#128204;</ModalHeader>
         <ModalCloseButton />
         <ModalBody
           mx={"1em"}
@@ -192,7 +190,7 @@ export default function ModalProgrammer(props) {
             alt="Page Image"
             mb={4}
             width={"100%"}
-            height={{ base: "8em", lg: "10em", xl: "18em" }}
+            height={{ base: "8em", md: "10em", lg: "13em", xl: "18em" }}
             objectFit={"cover"}
           />
           <Text textAlign={"justify"}>{pages[currentPage].text()}</Text>
