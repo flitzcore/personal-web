@@ -91,7 +91,7 @@ export default function ComputerEngineer(props) {
               fontWeight="400"
               lineHeight="1.3em"
             >
-              That mean I works with IoT, Robotics, Website and Applications
+              That mean I work with IoT, Robotics, Website and Applications
             </Text>
 
             <Button onClick={onOpen} variant="blackTheme">

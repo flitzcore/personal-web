@@ -147,7 +147,10 @@ export default function ModalLabAssistant(props) {
       <ModalContent>
         <ModalHeader>I'm an active community member &#127881;</ModalHeader>
         <ModalCloseButton />
-        <ModalBody mx={"1em"}>
+        <ModalBody
+          mx={"1em"}
+          maxHeight={{ base: "90vh", md: "70vh", lg: "60vh", xl: "55vh" }}
+        >
           <Image
             src={pages[currentPage].imageUrl}
             alt="Page Image"

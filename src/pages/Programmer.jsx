@@ -15,6 +15,9 @@ import {
   isValidMotionProp,
   useMotionValueEvent,
 } from "framer-motion";
+import { useDisclosure } from "@chakra-ui/react";
+import ModalProgrammer from "../components/ModalProgrammer";
+
 import "src/fonts/montserrat.css";
 const ChakraMotionBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
@@ -22,6 +25,8 @@ const ChakraMotionBox = chakra(motion.div, {
 });
 
 export default function Programmer(props) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const scaleHeight = useTransform(props.scrollY, props.range, [
     "0vh",
     "100vh",
@@ -91,7 +96,7 @@ export default function Programmer(props) {
               fontWeight="600"
               lineHeight="1.3em"
             >
-              I’m a Computer Engineer
+              I'm a Project Contributor
             </Text>
             <Text
               fontFamily={`'Montserrat', sans-serif`}
@@ -99,9 +104,12 @@ export default function Programmer(props) {
               fontWeight="400"
               lineHeight="1.3em"
             >
-              That mean I works with IoT, Robotics, Website and Applications
+              I have participated in numerous projects across various domains
             </Text>
-            <Button variant="blackTheme">Learn more</Button>
+            <Button onClick={onOpen} variant="blackTheme">
+              Learn more
+            </Button>{" "}
+            <ModalProgrammer isOpen={isOpen} onClose={onClose} />
           </Stack>
           <Stack
             width={{

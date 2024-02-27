@@ -106,7 +106,7 @@ export default function LabAssistant(props) {
               color={"#FEFEFA"}
             >
               I'm active as a lab assistant and committee member for campus
-              events.
+              events
             </Text>
             <Button onClick={onOpen} variant="whiteTheme">
               Learn more
