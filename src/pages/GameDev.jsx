@@ -20,24 +20,28 @@ const ChakraMotionBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
     isValidMotionProp(prop) || shouldForwardProp(prop),
 });
-
+const scrollToBottom = () => {
+  window.scrollTo({
+    left: 0,
+    top: document.documentElement.scrollHeight, // Use the scrollHeight of the document to scroll to the bottom
+    behavior: "smooth", // Smooth scroll
+  });
+};
 export default function GameDev(props) {
   // const { scrollYProgress } = props.scrollY;
   // useMotionValueEvent(props.scrollY, "change", (latest) => {
   //   console.log("Scroll Y Progress in child changed to", latest);
   // });
   // These motion values will change as the page scrolls
-  const scaleHeight = useTransform(props.scrollY, props.range, [
-    "0vh",
-    "100vh",
-  ]);
+  const scaleHeight = useTransform(props.scrollY, [0.4, 0.6], ["0vh", "100vh"]);
+  const scaleY = useTransform(props.scrollY, [0.62, 1], ["0vh", "200vh"]);
   return (
     <ChakraMotionBox
       position="fixed"
-      bottom={0}
       zIndex={props.page - 1}
       style={{
         height: scaleHeight,
+        bottom: scaleY,
       }} // Apply the motion value
       w="100%"
       overflow="hidden" // Ensure that only the part of the image within the Box is visible
@@ -56,7 +60,7 @@ export default function GameDev(props) {
           position="absolute" // Use absolute to position the text over the image
           left="0" // Align to the left side of the viewport
           top="0" // Start from the top
-          h="100%" // Take full height to allow vertical centering
+          h="100vh" // Take full height to allow vertical centering
           w="100%" // Take full width to cover the image
           justifyContent="space-between" // Align text to the left
           alignItems="center" // Center text vertically
@@ -110,7 +114,9 @@ export default function GameDev(props) {
               Nah..not really. I'm pretty funny. Why not just contact me to
               learn more?
             </Text>
-            <Button variant="whiteTheme">Learn more</Button>
+            <Button onClick={scrollToBottom} variant="whiteTheme">
+              Learn more
+            </Button>
           </Stack>
           <Stack
             width={{
@@ -142,12 +148,14 @@ export default function GameDev(props) {
             >
               Inquiries are always welcome
             </Text>
-            <Button variant="whiteTheme">Contact me</Button>
+            <Button onClick={scrollToBottom} variant="whiteTheme">
+              Contact me
+            </Button>
           </Stack>
         </Flex>
         <Image
           src="/images/serious.png"
-          height="100%" // Make the image fill the container
+          height="100vh" // Make the image fill the container
           width="100vw" // Auto width to maintain aspect ratio
           objectFit="cover"
           objectPosition="bottom" // Ensure the bottom part of the image is visible and aligned

@@ -21,7 +21,13 @@ const ChakraMotionBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
     isValidMotionProp(prop) || shouldForwardProp(prop),
 });
-
+const scrollToBottom = () => {
+  window.scrollTo({
+    left: 0,
+    top: document.documentElement.scrollHeight, // Use the scrollHeight of the document to scroll to the bottom
+    behavior: "smooth", // Smooth scroll
+  });
+};
 export default function LabAssistant(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const scaleHeight = useTransform(props.scrollY, props.range, [
@@ -143,7 +149,9 @@ export default function LabAssistant(props) {
             >
               Inquiries are always welcome
             </Text>
-            <Button variant="whiteTheme">Contact me</Button>
+            <Button onClick={scrollToBottom} variant="whiteTheme">
+              Contact me
+            </Button>
           </Stack>
         </Flex>
         <Image

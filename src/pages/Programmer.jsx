@@ -23,7 +23,13 @@ const ChakraMotionBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
     isValidMotionProp(prop) || shouldForwardProp(prop),
 });
-
+const scrollToBottom = () => {
+  window.scrollTo({
+    left: 0,
+    top: document.documentElement.scrollHeight, // Use the scrollHeight of the document to scroll to the bottom
+    behavior: "smooth", // Smooth scroll
+  });
+};
 export default function Programmer(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -140,7 +146,9 @@ export default function Programmer(props) {
             >
               Inquiries are always welcome
             </Text>
-            <Button variant="blackTheme">Contact me</Button>
+            <Button onClick={scrollToBottom} variant="blackTheme">
+              Contact me
+            </Button>
           </Stack>
         </Flex>
         <Image

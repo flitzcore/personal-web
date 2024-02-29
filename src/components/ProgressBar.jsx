@@ -5,6 +5,7 @@ import {
   useTransform,
   isValidMotionProp,
   useMotionValueEvent,
+  transform,
 } from "framer-motion";
 
 const ChakraMotionBox = chakra(motion.div, {
@@ -15,13 +16,21 @@ const ChakraMotionBox = chakra(motion.div, {
 export default function ProgressBar(props) {
   // These motion values will change as the page scrolls
   const scaleHeight = useTransform(props.scrollY, props.range, ["100%", "0%"]);
-
+  const boxYPosition = useTransform(
+    props.scrollY,
+    [0, 0.62, 1],
+    ["50%", "50%", "-150%"]
+  );
   return (
-    <Box
+    <ChakraMotionBox
       marginLeft={{ base: "1rem", md: "1.5em", lg: "3.5em", "2xl": "4em" }}
       position="fixed"
       top="50%" // Center vertically
-      transform="translateY(-50%)" // Adjust for exact vertical centering
+      style={{
+        top: boxYPosition,
+      }}
+      transform="translateY(-50%)"
+      // Adjust for exact vertical centering
       zIndex={100}
       height={{
         base: "13em",
@@ -44,6 +53,6 @@ export default function ProgressBar(props) {
           height: scaleHeight,
         }}
       />
-    </Box>
+    </ChakraMotionBox>
   );
 }

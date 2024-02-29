@@ -13,18 +13,17 @@ function generateTransformValues(page, pageCount) {
   // Calculate the start and end percentages for the current page
   const start = (page - 1) / pageCount;
   const end = page / pageCount;
-
+  console.log(start, end);
   // Return the values for useTransform
   return [start, end];
 }
 function App() {
   // const ref = useRef(null);
-  const pageCount = 6;
+  const pageCount = 7;
   const { scrollYProgress } = useScroll({
     // target: ref,
     offset: ["start start", "end start"],
   });
-  console.log(scrollYProgress);
 
   return (
     <>
@@ -50,13 +49,8 @@ function App() {
         range={generateTransformValues(4, pageCount)}
         scrollY={scrollYProgress}
       />
-
+      <ContactMe scrollY={scrollYProgress} />
       <ScrollContent />
-      {/* <ContactMe
-        page={6}
-        range={generateTransformValues(5, pageCount)}
-        scrollY={scrollYProgress}
-      /> */}
     </>
   );
 }
