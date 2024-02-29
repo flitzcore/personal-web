@@ -14,7 +14,7 @@ function generateTransformValues(page, pageCount) {
   // Calculate the start and end percentages for the current page
   const start = (page - 1) / pageCount;
   const end = page / pageCount;
-  console.log(start, end);
+  // console.log(start, end);
   // Return the values for useTransform
   return [start, end];
 }
