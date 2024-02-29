@@ -33,7 +33,11 @@ export default function GameDev(props) {
   //   console.log("Scroll Y Progress in child changed to", latest);
   // });
   // These motion values will change as the page scrolls
-  const scaleHeight = useTransform(props.scrollY, [0.4, 0.6], ["0vh", "100vh"]);
+  const scaleHeight = useTransform(
+    props.scrollY,
+    [0.42, 0.6],
+    ["0vh", "100vh"]
+  );
   const scaleY = useTransform(props.scrollY, [0.62, 1], ["0vh", "200vh"]);
   return (
     <ChakraMotionBox
