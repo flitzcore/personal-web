@@ -3,12 +3,13 @@ import Programmer from "src/pages/Programmer";
 import Designer from "src/pages/Designer";
 import LabAssistant from "src/pages/LabAssistant";
 import GameDev from "src/pages/GameDev";
+import IsPotrait from "src/pages/IsPotrait";
 import ScrollContent from "./pages/ScrollContent";
 import React from "react";
 import { useScroll } from "framer-motion";
 import ProgressBar from "./components/ProgressBar";
 import ContactMe from "./pages/ContactMe";
-
+import { useMediaQuery } from "@chakra-ui/react";
 function generateTransformValues(page, pageCount) {
   // Calculate the start and end percentages for the current page
   const start = (page - 1) / pageCount;
@@ -18,6 +19,7 @@ function generateTransformValues(page, pageCount) {
   return [start, end];
 }
 function App() {
+  const [isLandscape] = useMediaQuery("(orientation: landscape)");
   // const ref = useRef(null);
   const pageCount = 7;
   const { scrollYProgress } = useScroll({
@@ -25,7 +27,7 @@ function App() {
     offset: ["start start", "end start"],
   });
 
-  return (
+  return isLandscape ? (
     <>
       <ProgressBar scrollY={scrollYProgress} range={[0, 0.85]} />
       <ComputerEngineer page={1} scrollY={scrollYProgress} />
@@ -51,6 +53,10 @@ function App() {
       />
       <ContactMe scrollY={scrollYProgress} />
       <ScrollContent />
+    </>
+  ) : (
+    <>
+      <IsPotrait></IsPotrait>
     </>
   );
 }
