@@ -69,7 +69,7 @@ export default function ModalLabAssistant(props) {
           the event, check out MAGE's Instagram page at{" "}
           <a
             href="
-            https://www.instagram.com/mage_its?igsh=cW5tdXp2ZWk0ZjU1"
+            https://www.instagram.com/mage_its/"
             target="_blank"
             style={{
               color: "black",

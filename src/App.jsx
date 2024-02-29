@@ -7,6 +7,7 @@ import ScrollContent from "./pages/ScrollContent";
 import React from "react";
 import { useScroll } from "framer-motion";
 import ProgressBar from "./components/ProgressBar";
+import ContactMe from "./pages/ContactMe";
 
 function generateTransformValues(page, pageCount) {
   // Calculate the start and end percentages for the current page
@@ -18,7 +19,7 @@ function generateTransformValues(page, pageCount) {
 }
 function App() {
   // const ref = useRef(null);
-  const pageCount = 5;
+  const pageCount = 6;
   const { scrollYProgress } = useScroll({
     // target: ref,
     offset: ["start start", "end start"],
@@ -51,6 +52,11 @@ function App() {
       />
 
       <ScrollContent />
+      {/* <ContactMe
+        page={6}
+        range={generateTransformValues(5, pageCount)}
+        scrollY={scrollYProgress}
+      /> */}
     </>
   );
 }

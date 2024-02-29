@@ -104,7 +104,8 @@ export default function Programmer(props) {
               fontWeight="400"
               lineHeight="1.3em"
             >
-              I have participated in numerous projects across various domains
+              I have participated in numerous projects across various
+              technological domains
             </Text>
             <Button onClick={onOpen} variant="blackTheme">
               Learn more

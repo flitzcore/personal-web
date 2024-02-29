@@ -98,7 +98,7 @@ export default function GameDev(props) {
               lineHeight="1.3em"
               color={"#FEFEFA"}
             >
-              I’m a Computer Engineer
+              I’m Serious
             </Text>
             <Text
               fontFamily={`'Montserrat', sans-serif`}
@@ -107,7 +107,8 @@ export default function GameDev(props) {
               lineHeight="1.3em"
               color={"#FEFEFA"}
             >
-              That mean I works with IoT, Robotics, Website and Applications
+              Nah..not really. I'm pretty funny. Why not just contact me to
+              learn more?
             </Text>
             <Button variant="whiteTheme">Learn more</Button>
           </Stack>

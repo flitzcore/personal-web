@@ -15,6 +15,9 @@ import {
   isValidMotionProp,
   useMotionValueEvent,
 } from "framer-motion";
+import { useDisclosure } from "@chakra-ui/react";
+import ModalDesigner from "../components/ModalDesigner";
+
 import "src/fonts/montserrat.css";
 const ChakraMotionBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
@@ -22,11 +25,7 @@ const ChakraMotionBox = chakra(motion.div, {
 });
 
 export default function Designer(props) {
-  // const { scrollYProgress } = props.scrollY;
-  // useMotionValueEvent(props.scrollY, "change", (latest) => {
-  //   console.log("Scroll Y Progress in child changed to", latest);
-  // });
-  // These motion values will change as the page scrolls
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const scaleHeight = useTransform(props.scrollY, props.range, [
     "0vh",
     "100vh",
@@ -96,7 +95,7 @@ export default function Designer(props) {
               fontWeight="600"
               lineHeight="1.3em"
             >
-              I’m a Computer Engineer
+              I'm a Creative Thinker
             </Text>
             <Text
               fontFamily={`'Montserrat', sans-serif`}
@@ -104,9 +103,13 @@ export default function Designer(props) {
               fontWeight="400"
               lineHeight="1.3em"
             >
-              That mean I works with IoT, Robotics, Website and Applications
+              I have the ability to think outside the box and approach problems
+              in unique ways
             </Text>
-            <Button variant="blackTheme">Learn more</Button>
+            <Button onClick={onOpen} variant="blackTheme">
+              Learn more
+            </Button>
+            <ModalDesigner isOpen={isOpen} onClose={onClose} />
           </Stack>
           <Stack
             width={{
