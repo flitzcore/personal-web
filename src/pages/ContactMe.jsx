@@ -34,8 +34,8 @@ export default function ContactMe(props) {
   const inView = useInView(ref, { once: false });
 
   const variants = {
-    visible: { opacity: 1, transition: { duration: 2 } },
-    hidden: { opacity: 0, transition: { duration: 2 } },
+    visible: { opacity: 1, transition: { duration: 3 } },
+    hidden: { opacity: 0, transition: { duration: 3 } },
   };
   // const { scrollYProgress } = props.scrollY;
   // useMotionValueEvent(props.scrollY, "change", (latest) => {
