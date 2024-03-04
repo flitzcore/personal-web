@@ -8,7 +8,7 @@ import {
   Stack,
   useBreakpointValue,
 } from "@chakra-ui/react";
-
+import { useRef } from "react";
 import {
   motion,
   useTransform,
@@ -16,14 +16,27 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { FiMail } from "react-icons/fi"; // For the email icon
-import { FaGithub, FaLinkedin } from "react-icons/fa"; // For GitHub and LinkedIn icons
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { useInView } from "framer-motion";
 
 const ChakraMotionBox = chakra(motion.div, {
   shouldForwardProp: (prop) =>
     isValidMotionProp(prop) || shouldForwardProp(prop),
 });
+const ChakraMotionStack = chakra(motion.div, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});
 
 export default function ContactMe(props) {
+  // For GitHub and LinkedIn icons
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: false });
+
+  const variants = {
+    visible: { opacity: 1, transition: { duration: 2 } },
+    hidden: { opacity: 0, transition: { duration: 2 } },
+  };
   // const { scrollYProgress } = props.scrollY;
   // useMotionValueEvent(props.scrollY, "change", (latest) => {
   //   console.log("Scroll Y Progress in child changed to", latest);
@@ -56,9 +69,13 @@ export default function ContactMe(props) {
         alignContent={"center"}
         justifyContent={"center"}
       >
-        <Stack
+        <ChakraMotionStack
           mt="50vh"
           w={{ base: "20em", md: "25em", lg: "45em", xl: "50em" }}
+          ref={ref}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          variants={variants}
         >
           <Image
             src="/images/contact-me.svg"
@@ -134,7 +151,7 @@ export default function ContactMe(props) {
               </Text>
             </Flex>
           </Flex>
-        </Stack>
+        </ChakraMotionStack>
       </Flex>
     </ChakraMotionBox>
   );
