@@ -1,10 +1,12 @@
 import {
   Box,
+  Image,
   Text,
   Flex,
   chakra,
   shouldForwardProp,
   Stack,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 
 import {
@@ -28,6 +30,12 @@ export default function ContactMe(props) {
   // });
   // These motion values will change as the page scrolls
   const scaleY = useTransform(props.scrollY, [0.6, 1], ["-200vh", "0vh"]);
+  const iconSize = useBreakpointValue({
+    base: "1.3em",
+    md: "1.5em",
+    lg: "2em",
+    xl: "2.5em",
+  });
   return (
     <ChakraMotionBox
       position="fixed"
@@ -48,27 +56,25 @@ export default function ContactMe(props) {
         alignContent={"center"}
         justifyContent={"center"}
       >
-        <Stack mt="50vh" w={"50em"}>
-          <Text
-            fontFamily={`'Montserrat', sans-serif`}
-            fontSize={"10em"}
-            letterSpacing={-2}
-            fontWeight="700"
-            lineHeight={{ base: "1em", "2xl": "0.9em" }}
-            color={"#FEFEFA"}
-            // Add some margin at the bottom if needed
-          >
-            Contact Me
-          </Text>
+        <Stack
+          mt="50vh"
+          w={{ base: "20em", md: "25em", lg: "45em", xl: "50em" }}
+        >
+          <Image
+            src="/images/contact-me.svg"
+            width="100%"
+            objectFit="contain"
+            objectPosition="bottom" // Align the image to the top so the top half is visible
+          />
           <Flex
             justifyContent="space-between" // Align text to the left
             alignItems="center" // Center text vertically
           >
             <Flex alignItems="center" marginTop={3}>
-              <FiMail size="2em" color="#FEFEFA" />
+              <FiMail size={iconSize} color="#FEFEFA" />
               <Text
                 fontFamily={`'Montserrat', sans-serif`}
-                fontSize={"2em"}
+                fontSize={{ base: "sm", md: "sm", xl: "xl", "2xl": "2xl" }}
                 fontWeight="600"
                 lineHeight="1.3em"
                 color={"#FEFEFA"}
@@ -86,11 +92,11 @@ export default function ContactMe(props) {
               </Text>
             </Flex>
             <Flex alignItems="center" marginTop={3}>
-              <FaLinkedin size="2em" color="#FEFEFA" />
+              <FaLinkedin size={iconSize} color="#FEFEFA" />
               <Text
                 fontFamily={`'Montserrat', sans-serif`}
                 marginLeft="2"
-                fontSize={"2em"}
+                fontSize={{ base: "sm", md: "sm", xl: "xl", "2xl": "2xl" }}
                 fontWeight="600"
                 lineHeight="1.3em"
                 color={"#FEFEFA"}
@@ -107,11 +113,11 @@ export default function ContactMe(props) {
               </Text>
             </Flex>
             <Flex alignItems="center" marginTop={3}>
-              <FaGithub size="2em" color="#FEFEFA" />
+              <FaGithub size={iconSize} color="#FEFEFA" />
               <Text
                 fontFamily={`'Montserrat', sans-serif`}
                 marginLeft="2"
-                fontSize={"2em"}
+                fontSize={{ base: "sm", md: "sm", xl: "xl", "2xl": "2xl" }}
                 fontWeight="600"
                 lineHeight="1.3em"
                 color={"#FEFEFA"}
