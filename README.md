@@ -2,4 +2,4 @@
 
 This is a small project of mine to create public branding website
 
-progress: ongoing
+progress: completed
